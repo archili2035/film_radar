@@ -22,8 +22,12 @@
 
 ```
 .
-├── index.html   # 仪表盘本体（数据以 const DATA 内嵌，无外部依赖）
-├── data.json    # 结构化数据源（人类可读，便于增量更新与二次利用）
+├── index.html      # 仪表盘本体（数据在 DATA:START ~ DATA:END 之间内嵌，无外部依赖）
+├── data.json       # 权威数据源（人类可读，增量更新以它为准）
+├── scripts/
+│   └── merge.mjs   # 校验 data.json 并机械回填 index.html 的合并脚本
+├── daily/          # 每日扫描原始 Markdown 日报留档
+├── 需求说明.md      # 原始需求与确认口径
 └── README.md
 ```
 
@@ -74,11 +78,43 @@
 - **同一作品跨天出现**：会拆成多个条目（不同 `id` + `scanDate`），以保留「按扫描时间标注」的原始信息，不做跨天合并。
 - **热度数值**：为扫描当时的公开统计快照，会随时间变化；B站热度不等同作品质量或参考优先级。
 
-## 如何更新
+## 如何更新（推荐用合并脚本）
 
-1. 新增一天扫描后，把新的作品/视频按上面的 schema 追加进 `data.json` 的 `works` 数组，并在 `meta.scans` 里补一条扫描元信息。
-2. 把 `data.json` 内容原样内嵌回 `index.html` 中 `const DATA = ...` 的位置（保持单文件自包含特性）。
-3. 提交并推送到 `main`，GitHub Pages 会自动重新构建。
+`data.json` 是唯一权威数据源，`index.html` 里的 `const DATA` 由脚本机械回填，**不要手工编辑 index.html 里的数据**。
+
+**方式 A —— 用当天数据文件追加（推荐）**
+
+把当天扫描结果整理成一个 `day.json`：
+
+```jsonc
+{
+  "generated": "2026-07-03",              // 可选，缺省用当天日期
+  "scan": { "date": "2026-07-03", ... },  // 追加到 meta.scans 的单条扫描元信息
+  "works": [ { ...作品条目... } ]           // 追加到 works 的当天条目
+}
+```
+
+然后运行：
+
+```bash
+node scripts/merge.mjs --append day.json
+```
+
+脚本会：校验字段与 id 唯一性 → 追加进 `data.json` → 更新 `meta.generated` → 回填 `index.html`（只替换 `DATA:START ~ DATA:END` 区块）→ 校验单文件自包含。任一步失败会非 0 退出并打印原因。
+
+**方式 B —— 手工改 data.json 后回填**
+
+直接编辑 `data.json`（追加 `works` / `meta.scans`），再运行 `node scripts/merge.mjs`（不带参数，只校验+回填）。
+
+**提交**
+
+```bash
+git add data.json index.html daily/
+git commit -m "扫描 YYYY-MM-DD：合并 N 个作品到雷达页面"
+git push origin main
+```
+
+GitHub Pages 会自动重新构建。
 
 ## 说明
 
