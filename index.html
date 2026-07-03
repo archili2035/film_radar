@@ -103,6 +103,8 @@
   .bdg.type{background:rgba(74,158,255,.12);color:#8fc0ff;border:1px solid rgba(74,158,255,.2)}
   .bdg.theme{background:rgba(167,139,250,.12);color:#c4b3ff;border:1px solid rgba(167,139,250,.2)}
   .bdg.date{background:rgba(255,255,255,.05);color:var(--txt2);border:1px solid var(--line2);font-family:var(--mono)}
+  .bdg.rel{background:rgba(240,180,90,.13);color:#f2c07a;border:1px solid rgba(240,180,90,.24);font-family:var(--mono)}
+  .bdg.rel.na{background:rgba(255,255,255,.04);color:var(--txt2);border:1px solid var(--line2)}
   .conf-tag{font-size:10.5px;padding:3px 8px;border-radius:6px;font-weight:600;white-space:nowrap;flex:none}
   .conf-tag.high{background:rgba(56,225,200,.14);color:var(--accent)}
   .conf-tag.medium{background:rgba(74,158,255,.14);color:var(--accent2)}
@@ -184,12 +186,15 @@
           <option value="coin">排序：投币 ↓</option>
           <option value="rate">排序：互动率 ↓</option>
           <option value="date">排序：扫描日期 ↓</option>
+          <option value="release_desc">排序：上映时间 新→旧</option>
+          <option value="release_asc">排序：上映时间 旧→新</option>
           <option value="name">排序：作品名 A-Z</option>
         </select>
         <label class="toggle"><input type="checkbox" id="showLow"> 显示低置信样本</label>
       </div>
       <div class="filters" id="fDate"></div>
       <div class="filters" id="fTheme"></div>
+      <div class="filters" id="fEra"></div>
       <div class="filters" id="fConf"></div>
       <div class="count-line" id="countLine"></div>
     </div>
@@ -251,7 +256,41 @@ const DATA = {
         "keywords": 30
       }
     ],
-    "note": "热度信号为扫描时公开统计，会持续变化；B站热度不等同作品质量或参考优先级。"
+    "note": "热度信号为扫描时公开统计，会持续变化；B站热度不等同作品质量或参考优先级。",
+    "themeGroups": {
+      "经典片再问题化": "经典片再解读",
+      "经典电影拉片与家庭关系压力": "经典片再解读",
+      "高分电影长尾留档": "经典片再解读",
+      "经典港片再包装": "港片再包装",
+      "IP改编与粉丝文化": "IP·粉丝文化",
+      "长线 IP 前史压缩": "IP·粉丝文化",
+      "老 IP 结局解析": "IP·粉丝文化",
+      "网络/海外动画解析": "动画叙事",
+      "长线动画角色再解释": "动画叙事",
+      "类型剧任务结构与情绪犯罪": "类型剧·犯罪情绪",
+      "真实案件与现实主义悬疑": "类型剧·犯罪情绪",
+      "爽剧漫改退隐强者": "爽剧漫改",
+      "网络怪谈电影化/阈限空间": "怪谈·恐怖·阈限",
+      "民俗恐怖与阈限空间": "怪谈·恐怖·阈限",
+      "冷门恐怖片与仪式符号": "怪谈·恐怖·阈限",
+      "片段化标题钩子": "二创·传播钩子",
+      "名场面二创传播": "二创·传播钩子",
+      "古典 IP 二创": "二创·传播钩子",
+      "创作方法论视频": "创作方法论",
+      "动画叙事分析": "动画叙事"
+    },
+    "themeGroupOrder": [
+      "经典片再解读",
+      "港片再包装",
+      "IP·粉丝文化",
+      "动画叙事",
+      "类型剧·犯罪情绪",
+      "爽剧漫改",
+      "怪谈·恐怖·阈限",
+      "二创·传播钩子",
+      "创作方法论",
+      "其他"
+    ]
   },
   "works": [
     {
@@ -284,7 +323,9 @@ const DATA = {
           "danmaku": 0,
           "share": 2
         }
-      ]
+      ],
+      "release": "2025",
+      "themeGroup": "爽剧漫改"
     },
     {
       "id": "w-jinteweu",
@@ -355,7 +396,9 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2026",
+      "themeGroup": "爽剧漫改"
     },
     {
       "id": "w-charlotte",
@@ -387,7 +430,9 @@ const DATA = {
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": "2006",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-kungfu",
@@ -432,7 +477,9 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2004",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-qinsong",
@@ -464,7 +511,9 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "1996",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-invisible",
@@ -496,7 +545,9 @@ const DATA = {
           "danmaku": 3,
           "share": 0
         }
-      ]
+      ],
+      "release": "2016",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-supergirl",
@@ -528,7 +579,9 @@ const DATA = {
           "danmaku": 509,
           "share": 271
         }
-      ]
+      ],
+      "release": "1984",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-beiqing",
@@ -560,7 +613,9 @@ const DATA = {
           "danmaku": 10,
           "share": 33
         }
-      ]
+      ],
+      "release": "1989",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-qimiao",
@@ -592,7 +647,9 @@ const DATA = {
           "danmaku": 1087,
           "share": 178
         }
-      ]
+      ],
+      "release": "2026",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-justice",
@@ -624,7 +681,10 @@ const DATA = {
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": "2017",
+      "releaseNote": "正义联盟原片 2017；视频讲的“影迷修复”多指 2021 扎克施奈德版，release 取原片年 2017。",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-spider4",
@@ -656,7 +716,9 @@ const DATA = {
           "danmaku": 1,
           "share": 1
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-backrooms-0630",
@@ -701,7 +763,9 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-sheep",
@@ -746,7 +810,9 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2026",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-martyrs",
@@ -778,7 +844,9 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2008",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-fengsheng",
@@ -810,7 +878,10 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2009",
+      "releaseNote": "此条为剧版《风声》拉片；电影《风声》2009，剧版 2020，release 暂取原作电影年 2009，可按你口径改为剧版年。",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-xuanya",
@@ -842,7 +913,9 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2021",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-magic-circus",
@@ -900,7 +973,9 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2023",
+      "themeGroup": "动画叙事"
     },
     {
       "id": "w-jiangshi",
@@ -945,7 +1020,9 @@ const DATA = {
           "danmaku": 1,
           "share": 1
         }
-      ]
+      ],
+      "release": "2013",
+      "themeGroup": "港片再包装"
     },
     {
       "id": "w-jiangshi-zhizun",
@@ -977,7 +1054,10 @@ const DATA = {
           "danmaku": 62,
           "share": 20
         }
-      ]
+      ],
+      "release": "1991",
+      "releaseNote": "《僵尸至尊》年份存疑（可能指向不同港产僵尸片），暂标 1991，建议复核。",
+      "themeGroup": "港片再包装"
     },
     {
       "id": "w-kotonoha",
@@ -1009,7 +1089,9 @@ const DATA = {
           "danmaku": 3,
           "share": 9
         }
-      ]
+      ],
+      "release": "2013",
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-dami",
@@ -1054,7 +1136,9 @@ const DATA = {
           "danmaku": 0,
           "share": 3
         }
-      ]
+      ],
+      "release": "1996",
+      "themeGroup": "港片再包装"
     },
     {
       "id": "w-dongcheng",
@@ -1086,7 +1170,9 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "1993",
+      "themeGroup": "港片再包装"
     },
     {
       "id": "w-taxi",
@@ -1131,7 +1217,9 @@ const DATA = {
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": "2021",
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-chaoshi",
@@ -1176,7 +1264,9 @@ const DATA = {
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-hazbin",
@@ -1208,7 +1298,10 @@ const DATA = {
           "danmaku": 2,
           "share": 0
         }
-      ]
+      ],
+      "release": "2024",
+      "releaseNote": "地狱客栈正剧 2024（试播集 2019）。",
+      "themeGroup": "动画叙事"
     },
     {
       "id": "w-doraemon",
@@ -1266,7 +1359,10 @@ const DATA = {
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "1979",
+      "releaseNote": "长青 IP，取大山版 TV 动画开播年 1979 作代表。",
+      "themeGroup": "动画叙事"
     },
     {
       "id": "w-backrooms-0702",
@@ -1311,7 +1407,9 @@ const DATA = {
           "danmaku": 25,
           "share": 9
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "怪谈·恐怖·阈限"
     },
     {
       "id": "w-tianzhuding",
@@ -1356,7 +1454,9 @@ const DATA = {
           "danmaku": 4,
           "share": 1
         }
-      ]
+      ],
+      "release": "2013",
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-rezero",
@@ -1388,7 +1488,9 @@ const DATA = {
           "danmaku": 218,
           "share": 55
         }
-      ]
+      ],
+      "release": "2016",
+      "themeGroup": "动画叙事"
     },
     {
       "id": "w-longmen",
@@ -1420,7 +1522,9 @@ const DATA = {
           "danmaku": 434,
           "share": 32
         }
-      ]
+      ],
+      "release": "2020",
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-danshen",
@@ -1452,7 +1556,10 @@ const DATA = {
           "danmaku": 329,
           "share": 22
         }
-      ]
+      ],
+      "release": "2014",
+      "releaseNote": "数据里名为“单身度假村”，实为《单亲度假村》(Blended, 2014)，建议同时校正 name。",
+      "themeGroup": "二创·传播钩子"
     },
     {
       "id": "w-tiancai",
@@ -1484,7 +1591,9 @@ const DATA = {
           "danmaku": 33,
           "share": 20
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "二创·传播钩子"
     },
     {
       "id": "w-baiwan",
@@ -1516,7 +1625,9 @@ const DATA = {
           "danmaku": 0,
           "share": 2
         }
-      ]
+      ],
+      "release": "1954",
+      "themeGroup": "二创·传播钩子"
     },
     {
       "id": "w-elementary",
@@ -1548,7 +1659,9 @@ const DATA = {
           "danmaku": 7,
           "share": 0
         }
-      ]
+      ],
+      "release": "2012",
+      "themeGroup": "二创·传播钩子"
     },
     {
       "id": "w-youluwuzhou-0703",
@@ -1580,7 +1693,9 @@ const DATA = {
           "danmaku": 299,
           "share": 55
         }
-      ]
+      ],
+      "release": "2026",
+      "themeGroup": "怪谈·恐怖·阈限"
     },
     {
       "id": "w-xzhanjing97-0703",
@@ -1612,7 +1727,9 @@ const DATA = {
           "danmaku": 7,
           "share": 6
         }
-      ]
+      ],
+      "release": "2024",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-baoshifuzi-0703",
@@ -1644,7 +1761,9 @@ const DATA = {
           "danmaku": 181,
           "share": 34
         }
-      ]
+      ],
+      "release": "1983",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-guaiqishouge-0703",
@@ -1676,7 +1795,9 @@ const DATA = {
           "danmaku": 34,
           "share": 11
         }
-      ]
+      ],
+      "release": "2025",
+      "themeGroup": "怪谈·恐怖·阈限"
     },
     {
       "id": "w-yanweidie-0703",
@@ -1708,7 +1829,9 @@ const DATA = {
           "danmaku": 0,
           "share": 20
         }
-      ]
+      ],
+      "release": "1996",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-pixarfanzhuan-0703",
@@ -1740,7 +1863,9 @@ const DATA = {
           "danmaku": 140,
           "share": 56
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "创作方法论"
     },
     {
       "id": "w-leiaoaoteman-0703",
@@ -1772,7 +1897,9 @@ const DATA = {
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": "1974",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-xiyoujihonghaier-0703",
@@ -1804,7 +1931,9 @@ const DATA = {
           "danmaku": 158,
           "share": 22
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "二创·传播钩子"
     }
   ]
 };
@@ -1821,11 +1950,35 @@ const workAgg = w => {
 DATA.works.forEach(w=>{w._agg=workAgg(w);});
 
 const CONF_LABEL={high:"高置信",medium:"中置信",low:"低置信"};
-const themes=[...new Set(DATA.works.map(w=>w.theme))];
+/* 题材筛选按大类(themeGroup)走，控制在 ≤10 个桶；卡片仍显示细 theme 小标签 */
+const groupOrder=(DATA.meta.themeGroupOrder&&DATA.meta.themeGroupOrder.length)
+  ? DATA.meta.themeGroupOrder.filter(g=>DATA.works.some(w=>w.themeGroup===g))
+  : [...new Set(DATA.works.map(w=>w.themeGroup).filter(Boolean))];
+const themeGroups=groupOrder;
 const dates=[...new Set(DATA.works.map(w=>w.scanDate))].sort();
 
+/* ==== release 年份 → 年代分档 ==== */
+function releaseYear(w){
+  if(!w.release) return null;
+  const y=parseInt(String(w.release).slice(0,4),10);
+  return isNaN(y)?null:y;
+}
+function eraOf(w){
+  const y=releaseYear(w);
+  if(y===null) return 'unknown';
+  if(y>=2020) return '2020s';
+  if(y>=2010) return '2010s';
+  if(y>=2000) return '2000s';
+  if(y>=1990) return '1990s';
+  return 'pre1990';
+}
+const ERA_LABEL={'2020s':'2020s','2010s':'2010s','2000s':'2000s','1990s':'1990s','pre1990':'1990前','unknown':'未知'};
+const ERA_ORDER=['2020s','2010s','2000s','1990s','pre1990','unknown'];
+/* 只展示实际存在的年代档 */
+const erasPresent=ERA_ORDER.filter(e=>DATA.works.some(w=>eraOf(w)===e));
+
 /* ==== state ==== */
-const state={q:"",sort:"view",showLow:false,date:"all",theme:"all",conf:"all"};
+const state={q:"",sort:"view",showLow:false,date:"all",theme:"all",era:"all",conf:"all"};
 
 /* ==== render header ==== */
 const m=DATA.meta;
@@ -1842,7 +1995,7 @@ document.getElementById('stats').innerHTML=`
   <div class="stat"><div class="n blue">${totalVids}</div><div class="l">视频样本</div></div>
   <div class="stat"><div class="n hot">${fmt(totalViews)}</div><div class="l">累计播放（扫描时）</div></div>
   <div class="stat"><div class="n">${highN}</div><div class="l">高置信作品</div></div>
-  <div class="stat"><div class="n gold">${themes.length}</div><div class="l">主题线</div></div>
+  <div class="stat"><div class="n gold">${themeGroups.length}</div><div class="l">题材大类</div></div>
   <div class="stat"><div class="n" style="color:var(--txt2)">${lowN}</div><div class="l">低置信样本</div></div>`;
 
 document.getElementById('scans').innerHTML=m.scans.map(s=>`
@@ -1864,7 +2017,8 @@ function buildFilter(el,label,items,key){
   });
 }
 buildFilter('fDate','扫描日',dates.map(d=>({v:d,t:d})),'date');
-buildFilter('fTheme','主题线',themes.map(t=>({v:t,t})),'theme');
+buildFilter('fTheme','题材',themeGroups.map(t=>({v:t,t})),'theme');
+buildFilter('fEra','年代',erasPresent.map(e=>({v:e,t:ERA_LABEL[e]})),'era');
 buildFilter('fConf','置信度',[{v:'high',t:'高'},{v:'medium',t:'中'},{v:'low',t:'低'}],'conf');
 
 /* ==== controls ==== */
@@ -1875,7 +2029,7 @@ document.getElementById('showLow').onchange=e=>{state.showLow=e.target.checked;r
 /* ==== render ==== */
 function matchQ(w){
   if(!state.q) return true;
-  const hay=(w.name+' '+w.type+' '+w.theme+' '+w.discuss+' '+w.inspire.join(' ')+' '+
+  const hay=(w.name+' '+w.type+' '+w.theme+' '+(w.themeGroup||'')+' '+(w.release||'')+' '+w.discuss+' '+w.inspire.join(' ')+' '+
     w.videos.map(v=>v.up+' '+v.title+' '+v.bv).join(' ')).toLowerCase();
   return hay.includes(state.q);
 }
@@ -1885,6 +2039,15 @@ function sortWorks(arr){
     fav:w=>w._agg.fav,coin:w=>w._agg.coin,rate:w=>w._agg.rate};
   if(s==='name') return arr.sort((a,b)=>a.name.localeCompare(b.name,'zh'));
   if(s==='date') return arr.sort((a,b)=>b.scanDate.localeCompare(a.scanDate)|| b._agg.view-a._agg.view);
+  if(s==='release_desc'||s==='release_asc'){
+    return arr.sort((a,b)=>{
+      const ya=releaseYear(a), yb=releaseYear(b);
+      if(ya===null&&yb===null) return b._agg.view-a._agg.view; /* 都未知按播放 */
+      if(ya===null) return 1;  /* 未知永远排末尾 */
+      if(yb===null) return -1;
+      return s==='release_desc' ? (yb-ya) : (ya-yb);
+    });
+  }
   return arr.sort((a,b)=>key[s](b)-key[s](a));
 }
 function vidHTML(v){
@@ -1916,6 +2079,7 @@ function cardHTML(w){
       </div>
       <div class="badges">
         <span class="bdg type">${w.type}</span>
+        ${w.release?`<span class="bdg rel">🎬 ${w.release}</span>`:`<span class="bdg rel na">上映 —</span>`}
         <span class="bdg theme">${w.theme}</span>
         <span class="bdg date">◉ ${w.scanDate}</span>
       </div>
@@ -1949,7 +2113,8 @@ function render(){
   let arr=DATA.works.filter(w=>{
     if(!state.showLow && w.confidence==='low') return false;
     if(state.date!=='all' && w.scanDate!==state.date) return false;
-    if(state.theme!=='all' && w.theme!==state.theme) return false;
+    if(state.theme!=='all' && w.themeGroup!==state.theme) return false;
+    if(state.era!=='all' && eraOf(w)!==state.era) return false;
     if(state.conf!=='all' && w.confidence!==state.conf) return false;
     return matchQ(w);
   });

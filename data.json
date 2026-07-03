@@ -43,7 +43,41 @@
         "keywords": 30
       }
     ],
-    "note": "热度信号为扫描时公开统计，会持续变化；B站热度不等同作品质量或参考优先级。"
+    "note": "热度信号为扫描时公开统计，会持续变化；B站热度不等同作品质量或参考优先级。",
+    "themeGroups": {
+      "经典片再问题化": "经典片再解读",
+      "经典电影拉片与家庭关系压力": "经典片再解读",
+      "高分电影长尾留档": "经典片再解读",
+      "经典港片再包装": "港片再包装",
+      "IP改编与粉丝文化": "IP·粉丝文化",
+      "长线 IP 前史压缩": "IP·粉丝文化",
+      "老 IP 结局解析": "IP·粉丝文化",
+      "网络/海外动画解析": "动画叙事",
+      "长线动画角色再解释": "动画叙事",
+      "类型剧任务结构与情绪犯罪": "类型剧·犯罪情绪",
+      "真实案件与现实主义悬疑": "类型剧·犯罪情绪",
+      "爽剧漫改退隐强者": "爽剧漫改",
+      "网络怪谈电影化/阈限空间": "怪谈·恐怖·阈限",
+      "民俗恐怖与阈限空间": "怪谈·恐怖·阈限",
+      "冷门恐怖片与仪式符号": "怪谈·恐怖·阈限",
+      "片段化标题钩子": "二创·传播钩子",
+      "名场面二创传播": "二创·传播钩子",
+      "古典 IP 二创": "二创·传播钩子",
+      "创作方法论视频": "创作方法论",
+      "动画叙事分析": "动画叙事"
+    },
+    "themeGroupOrder": [
+      "经典片再解读",
+      "港片再包装",
+      "IP·粉丝文化",
+      "动画叙事",
+      "类型剧·犯罪情绪",
+      "爽剧漫改",
+      "怪谈·恐怖·阈限",
+      "二创·传播钩子",
+      "创作方法论",
+      "其他"
+    ]
   },
   "works": [
     {
@@ -76,7 +110,9 @@
           "danmaku": 0,
           "share": 2
         }
-      ]
+      ],
+      "release": "2025",
+      "themeGroup": "爽剧漫改"
     },
     {
       "id": "w-jinteweu",
@@ -147,7 +183,9 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2026",
+      "themeGroup": "爽剧漫改"
     },
     {
       "id": "w-charlotte",
@@ -179,7 +217,9 @@
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": "2006",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-kungfu",
@@ -224,7 +264,9 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2004",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-qinsong",
@@ -256,7 +298,9 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "1996",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-invisible",
@@ -288,7 +332,9 @@
           "danmaku": 3,
           "share": 0
         }
-      ]
+      ],
+      "release": "2016",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-supergirl",
@@ -320,7 +366,9 @@
           "danmaku": 509,
           "share": 271
         }
-      ]
+      ],
+      "release": "1984",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-beiqing",
@@ -352,7 +400,9 @@
           "danmaku": 10,
           "share": 33
         }
-      ]
+      ],
+      "release": "1989",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-qimiao",
@@ -384,7 +434,9 @@
           "danmaku": 1087,
           "share": 178
         }
-      ]
+      ],
+      "release": "2026",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-justice",
@@ -416,7 +468,10 @@
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": "2017",
+      "releaseNote": "正义联盟原片 2017；视频讲的“影迷修复”多指 2021 扎克施奈德版，release 取原片年 2017。",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-spider4",
@@ -448,7 +503,9 @@
           "danmaku": 1,
           "share": 1
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-backrooms-0630",
@@ -493,7 +550,9 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-sheep",
@@ -538,7 +597,9 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2026",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-martyrs",
@@ -570,7 +631,9 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2008",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-fengsheng",
@@ -602,7 +665,10 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2009",
+      "releaseNote": "此条为剧版《风声》拉片；电影《风声》2009，剧版 2020，release 暂取原作电影年 2009，可按你口径改为剧版年。",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-xuanya",
@@ -634,7 +700,9 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2021",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-magic-circus",
@@ -692,7 +760,9 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "2023",
+      "themeGroup": "动画叙事"
     },
     {
       "id": "w-jiangshi",
@@ -737,7 +807,9 @@
           "danmaku": 1,
           "share": 1
         }
-      ]
+      ],
+      "release": "2013",
+      "themeGroup": "港片再包装"
     },
     {
       "id": "w-jiangshi-zhizun",
@@ -769,7 +841,10 @@
           "danmaku": 62,
           "share": 20
         }
-      ]
+      ],
+      "release": "1991",
+      "releaseNote": "《僵尸至尊》年份存疑（可能指向不同港产僵尸片），暂标 1991，建议复核。",
+      "themeGroup": "港片再包装"
     },
     {
       "id": "w-kotonoha",
@@ -801,7 +876,9 @@
           "danmaku": 3,
           "share": 9
         }
-      ]
+      ],
+      "release": "2013",
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-dami",
@@ -846,7 +923,9 @@
           "danmaku": 0,
           "share": 3
         }
-      ]
+      ],
+      "release": "1996",
+      "themeGroup": "港片再包装"
     },
     {
       "id": "w-dongcheng",
@@ -878,7 +957,9 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "1993",
+      "themeGroup": "港片再包装"
     },
     {
       "id": "w-taxi",
@@ -923,7 +1004,9 @@
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": "2021",
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-chaoshi",
@@ -968,7 +1051,9 @@
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-hazbin",
@@ -1000,7 +1085,10 @@
           "danmaku": 2,
           "share": 0
         }
-      ]
+      ],
+      "release": "2024",
+      "releaseNote": "地狱客栈正剧 2024（试播集 2019）。",
+      "themeGroup": "动画叙事"
     },
     {
       "id": "w-doraemon",
@@ -1058,7 +1146,10 @@
           "danmaku": 0,
           "share": 0
         }
-      ]
+      ],
+      "release": "1979",
+      "releaseNote": "长青 IP，取大山版 TV 动画开播年 1979 作代表。",
+      "themeGroup": "动画叙事"
     },
     {
       "id": "w-backrooms-0702",
@@ -1103,7 +1194,9 @@
           "danmaku": 25,
           "share": 9
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "怪谈·恐怖·阈限"
     },
     {
       "id": "w-tianzhuding",
@@ -1148,7 +1241,9 @@
           "danmaku": 4,
           "share": 1
         }
-      ]
+      ],
+      "release": "2013",
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-rezero",
@@ -1180,7 +1275,9 @@
           "danmaku": 218,
           "share": 55
         }
-      ]
+      ],
+      "release": "2016",
+      "themeGroup": "动画叙事"
     },
     {
       "id": "w-longmen",
@@ -1212,7 +1309,9 @@
           "danmaku": 434,
           "share": 32
         }
-      ]
+      ],
+      "release": "2020",
+      "themeGroup": "类型剧·犯罪情绪"
     },
     {
       "id": "w-danshen",
@@ -1244,7 +1343,10 @@
           "danmaku": 329,
           "share": 22
         }
-      ]
+      ],
+      "release": "2014",
+      "releaseNote": "数据里名为“单身度假村”，实为《单亲度假村》(Blended, 2014)，建议同时校正 name。",
+      "themeGroup": "二创·传播钩子"
     },
     {
       "id": "w-tiancai",
@@ -1276,7 +1378,9 @@
           "danmaku": 33,
           "share": 20
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "二创·传播钩子"
     },
     {
       "id": "w-baiwan",
@@ -1308,7 +1412,9 @@
           "danmaku": 0,
           "share": 2
         }
-      ]
+      ],
+      "release": "1954",
+      "themeGroup": "二创·传播钩子"
     },
     {
       "id": "w-elementary",
@@ -1340,7 +1446,9 @@
           "danmaku": 7,
           "share": 0
         }
-      ]
+      ],
+      "release": "2012",
+      "themeGroup": "二创·传播钩子"
     },
     {
       "id": "w-youluwuzhou-0703",
@@ -1372,7 +1480,9 @@
           "danmaku": 299,
           "share": 55
         }
-      ]
+      ],
+      "release": "2026",
+      "themeGroup": "怪谈·恐怖·阈限"
     },
     {
       "id": "w-xzhanjing97-0703",
@@ -1404,7 +1514,9 @@
           "danmaku": 7,
           "share": 6
         }
-      ]
+      ],
+      "release": "2024",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-baoshifuzi-0703",
@@ -1436,7 +1548,9 @@
           "danmaku": 181,
           "share": 34
         }
-      ]
+      ],
+      "release": "1983",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-guaiqishouge-0703",
@@ -1468,7 +1582,9 @@
           "danmaku": 34,
           "share": 11
         }
-      ]
+      ],
+      "release": "2025",
+      "themeGroup": "怪谈·恐怖·阈限"
     },
     {
       "id": "w-yanweidie-0703",
@@ -1500,7 +1616,9 @@
           "danmaku": 0,
           "share": 20
         }
-      ]
+      ],
+      "release": "1996",
+      "themeGroup": "经典片再解读"
     },
     {
       "id": "w-pixarfanzhuan-0703",
@@ -1532,7 +1650,9 @@
           "danmaku": 140,
           "share": 56
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "创作方法论"
     },
     {
       "id": "w-leiaoaoteman-0703",
@@ -1564,7 +1684,9 @@
           "danmaku": 0,
           "share": 1
         }
-      ]
+      ],
+      "release": "1974",
+      "themeGroup": "IP·粉丝文化"
     },
     {
       "id": "w-xiyoujihonghaier-0703",
@@ -1596,7 +1718,9 @@
           "danmaku": 158,
           "share": 22
         }
-      ]
+      ],
+      "release": null,
+      "themeGroup": "二创·传播钩子"
     }
   ]
 }

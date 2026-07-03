@@ -32,6 +32,9 @@ const END = "/* ==== DATA:END ==== */";
 const REQ_WORK = ["id", "name", "type", "scanDate", "confidence", "theme", "signal", "contentSignal", "discuss", "inspire", "action", "videos"];
 const REQ_VIDEO = ["bv", "up", "pub", "title", "view", "like", "fav", "coin", "reply", "danmaku", "share"];
 const CONF = new Set(["high", "medium", "low"]);
+// release 允许 null 或 YYYY / YYYY-MM / YYYY-MM-DD
+const RELEASE_RE = /^\d{4}(-\d{2}(-\d{2})?)?$/;
+const OTHER_GROUP = "其他";
 
 function die(msg) {
   console.error("✗ " + msg);
@@ -61,6 +64,10 @@ function validate(data) {
     if (ids.has(w.id)) die(`works 中 id 重复：${w.id}（同名作品跨天应使用不同 id）`);
     ids.add(w.id);
     if (!CONF.has(w.confidence)) die(`works[${i}] confidence 非法：${w.confidence}（须为 high/medium/low）`);
+    // release 可缺省/为 null；若有值须匹配 YYYY[-MM[-DD]]
+    if (w.release != null && !RELEASE_RE.test(String(w.release))) {
+      die(`works[${i}] (${w.id}) release 格式非法：${w.release}（须为 null 或 YYYY / YYYY-MM / YYYY-MM-DD）`);
+    }
     if (!Array.isArray(w.inspire)) die(`works[${i}] inspire 必须是数组`);
     if (!Array.isArray(w.videos)) die(`works[${i}] videos 必须是数组`);
     w.videos.forEach((v, j) => {
@@ -70,6 +77,29 @@ function validate(data) {
     });
   });
   return data;
+}
+
+// 依据 meta.themeGroups 映射，为每个 work 补 themeGroup。
+// 已有 themeGroup 的保留；未命中映射的细线归入"其他"并收集提示。
+// 返回未命中映射的细线列表（供调用方提示用户扩充映射）。
+function applyThemeGroups(data) {
+  const map = (data.meta && data.meta.themeGroups) || {};
+  const order = (data.meta && data.meta.themeGroupOrder) || [];
+  const unmapped = new Map(); // theme -> [work names]
+  data.works.forEach((w) => {
+    if (w.themeGroup) return; // 已归类的不动（保持历史稳定）
+    const g = map[w.theme];
+    if (g) {
+      w.themeGroup = g;
+    } else {
+      w.themeGroup = OTHER_GROUP;
+      if (!unmapped.has(w.theme)) unmapped.set(w.theme, []);
+      unmapped.get(w.theme).push(w.name);
+    }
+  });
+  // 保证"其他"在桶顺序里存在
+  if (order.length && !order.includes(OTHER_GROUP)) order.push(OTHER_GROUP);
+  return unmapped;
 }
 
 function backfill(data) {
@@ -94,6 +124,15 @@ function backfill(data) {
   writeFileSync(HTML_PATH, next, "utf8");
 }
 
+function warnUnmapped(unmapped) {
+  if (!unmapped || unmapped.size === 0) return;
+  console.log("\n⚠ 出现未在 meta.themeGroups 中登记的新题材线（已暂归“其他”）：");
+  for (const [theme, names] of unmapped) {
+    console.log(`  · ${theme}  ← ${names.join("、")}`);
+  }
+  console.log("  建议：在 data.json 的 meta.themeGroups 里为这些细线指定所属大类，然后重跑 node scripts/merge.mjs。");
+}
+
 function main() {
   const args = process.argv.slice(2);
   let data = readJSON(DATA_PATH);
@@ -107,16 +146,27 @@ function main() {
     if (Array.isArray(day.works)) data.works.push(...day.works);
     if (day.generated) data.meta.generated = day.generated;
     else data.meta.generated = new Date().toISOString().slice(0, 10);
-    // 校验合并结果后写回 data.json
+    // 追加后先补题材大类，再校验、写回 data.json
+    const unmapped = applyThemeGroups(data);
     validate(data);
     writeFileSync(DATA_PATH, JSON.stringify(data, null, 2) + "\n", "utf8");
     console.log(`✓ 已追加 ${Array.isArray(day.works) ? day.works.length : 0} 个作品到 data.json`);
+    warnUnmapped(unmapped);
   } else {
+    const unmapped = applyThemeGroups(data);
     validate(data);
+    // 校验/回填模式也把可能新补的 themeGroup 写回 data.json，保持两处一致
+    writeFileSync(DATA_PATH, JSON.stringify(data, null, 2) + "\n", "utf8");
+    warnUnmapped(unmapped);
   }
 
   backfill(data);
-  console.log(`✓ 校验通过：${data.works.length} 个作品 / ${data.meta.scans.length} 次扫描`);
+  // 大类数量守护：超过 10 桶时提示（10 = 9 大类 + 其他）
+  const groups = new Set(data.works.map((w) => w.themeGroup).filter(Boolean));
+  console.log(`✓ 校验通过：${data.works.length} 个作品 / ${data.meta.scans.length} 次扫描 / ${groups.size} 个题材大类`);
+  if (groups.size > 10) {
+    console.log(`⚠ 题材大类已达 ${groups.size} 个（>10），建议在 data.json 的 meta.themeGroups 里把新线并入已有大类。`);
+  }
   console.log(`✓ 已回填 index.html（DATA:START ~ DATA:END）`);
 }
 
