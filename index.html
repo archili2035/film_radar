@@ -62,6 +62,8 @@
   .scan-chip .d{font-family:var(--mono);font-size:13px;color:var(--accent2);font-weight:600}
   .scan-chip .w{font-size:11.5px;color:var(--txt3);margin-top:3px;font-family:var(--mono)}
   .scan-chip .s{font-size:11.5px;color:var(--txt2);margin-top:5px}
+  .scan-archive{margin-top:32px;border-top:1px solid var(--line);padding-top:16px;color:var(--txt3)}
+  .scan-archive summary{cursor:pointer;font-size:12.5px;color:var(--txt2);user-select:none}
 
   /* ---------- controls ---------- */
   .controls{position:sticky;top:0;z-index:30;background:rgba(10,14,23,.86);
@@ -78,11 +80,16 @@
   .toggle{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--txt2);cursor:pointer;user-select:none;
     background:var(--panel2);border:1px solid var(--line2);border-radius:10px;padding:9px 13px}
   .toggle input{accent-color:var(--accent);width:15px;height:15px;cursor:pointer}
+  .filter-toggle{display:none;background:var(--panel2);border:1px solid var(--line2);color:var(--txt);border-radius:10px;
+    padding:10px 13px;font-size:13px;cursor:pointer}
+  .filter-panel{display:block}
   .filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
   .fbtn{font-size:12.5px;padding:6px 13px;border-radius:20px;border:1px solid var(--line2);
     background:transparent;color:var(--txt2);cursor:pointer;transition:.18s;white-space:nowrap}
   .fbtn:hover{border-color:var(--accent2);color:var(--txt)}
   .fbtn.on{background:var(--accent2);border-color:var(--accent2);color:#04101f;font-weight:600}
+  .date-input{background:var(--panel2);border:1px solid var(--line2);color:var(--txt2);border-radius:18px;padding:6px 10px;font-size:12px;outline:none}
+  .date-input:focus{border-color:var(--accent2);color:var(--txt)}
   .flabel{font-size:11px;color:var(--txt3);align-self:center;margin-right:2px;letter-spacing:.5px}
   .count-line{font-size:12.5px;color:var(--txt3);margin-top:10px;font-family:var(--mono)}
   .count-line b{color:var(--accent)}
@@ -119,6 +126,9 @@
 
   .card-body{padding:13px 16px;flex:1}
   .signal{font-size:13px;color:var(--txt2);margin-bottom:11px}
+  .detail-toggle{display:none;width:calc(100% - 32px);margin:0 16px 13px;background:transparent;color:var(--accent2);
+    border:1px solid var(--line2);border-radius:9px;padding:8px 10px;font-size:12.5px;cursor:pointer}
+  .detail-body{display:block}
   .sec-t{font-size:11px;color:var(--txt3);letter-spacing:.8px;margin:12px 0 6px;font-weight:600}
   .discuss{font-size:12.5px;color:var(--txt2)}
   .inspire{list-style:none;margin-top:4px}
@@ -154,9 +164,34 @@
   footer a{color:var(--accent2)}
 
   @media(max-width:640px){
-    .grid{grid-template-columns:1fr}
-    h1{font-size:20px}
-    .stats{grid-template-columns:repeat(2,1fr)}
+    body{padding-bottom:36px}
+    .wrap{padding:0 14px}
+    header{padding:18px 0 12px}
+    .radar-ic{width:34px;height:34px;border-radius:10px}
+    .radar-ic::after{inset:5px}
+    h1{font-size:19px;line-height:1.25}
+    h1 .sub{display:block;margin:3px 0 0;font-size:12px}
+    .hd-meta{font-size:11.5px;margin-top:7px;line-height:1.45}
+    .note{display:none}
+    .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:11px 0 0;padding:0;overflow:visible}
+    .stat{min-width:0;padding:7px 6px;border-radius:9px}
+    .stat .n{font-size:17px}.stat .l{font-size:10px;line-height:1.25}
+    .scan-archive{margin-top:24px;padding-top:12px}.scan-archive summary{font-size:12px}
+    .scans{flex-wrap:nowrap;overflow-x:auto;margin:10px -14px 0;padding:0 14px 2px}
+    .scan-chip{flex:0 0 240px;min-width:240px;padding:9px 11px;border-radius:10px}
+    .scan-chip .d{font-size:12px}.scan-chip .w,.scan-chip .s{font-size:10.5px}
+    .controls{position:static;padding:10px 0;margin:10px 0 4px;background:transparent;backdrop-filter:none;border-bottom:1px solid var(--line)}
+    .ctrl-row{gap:8px}.search{flex-basis:100%;min-width:0}.search input{padding:9px 12px 9px 34px;font-size:13px}
+    select{flex:1;min-width:0;padding:9px 10px}.toggle{padding:8px 10px;font-size:12px}.filter-toggle{display:block;padding:9px 11px}
+    .filter-panel{display:none}.controls.open .filter-panel{display:block}
+    .filters{flex-wrap:nowrap;overflow-x:auto;margin:9px -14px 0;padding:0 14px 2px}.flabel{flex:0 0 auto}.fbtn{padding:6px 11px;font-size:12px}.date-input{flex:0 0 138px;font-size:11.5px;padding:6px 9px}
+    .count-line{font-size:11.5px;margin-top:8px}
+    .grid{grid-template-columns:1fr;gap:12px;margin-top:12px}.card:hover{transform:none}.card-hd{padding:12px 13px 10px}.card-name{font-size:15px}
+    .badges{gap:5px;margin-top:7px}.bdg{font-size:10.5px;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+    .agg{padding:9px 13px;gap:12px}.agg .m .v{font-size:13px}.agg .m .k{font-size:10px}
+    .card-body{padding:11px 13px 0}.signal{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+    .detail-toggle{display:block}.card:not(.open) .detail-body{display:none}.card.open .signal{-webkit-line-clamp:unset}
+    .discuss{font-size:12px}.inspire li{font-size:11.5px}.action-box{font-size:11.5px}.vid{padding:9px 13px}.vid-top{display:block}.vid-bv{display:block;margin-top:4px}
   }
 </style>
 </head>
@@ -171,7 +206,6 @@
     <div class="note" id="note"></div>
 
     <div class="stats" id="stats"></div>
-    <div class="scans" id="scans"></div>
   </header>
 
   <div class="controls">
@@ -190,18 +224,26 @@
           <option value="release_asc">排序：上映时间 旧→新</option>
           <option value="name">排序：作品名 A-Z</option>
         </select>
-        <label class="toggle"><input type="checkbox" id="showLow"> 显示低置信样本</label>
+        <label class="toggle"><input type="checkbox" id="showLow"> 低置信</label>
+        <button class="filter-toggle" id="filterToggle" type="button">筛选</button>
       </div>
-      <div class="filters" id="fDate"></div>
-      <div class="filters" id="fTheme"></div>
-      <div class="filters" id="fEra"></div>
-      <div class="filters" id="fConf"></div>
+      <div class="filter-panel" id="filterPanel">
+        <div class="filters" id="fDate"></div>
+        <div class="filters" id="fTheme"></div>
+        <div class="filters" id="fEra"></div>
+        <div class="filters" id="fConf"></div>
+      </div>
       <div class="count-line" id="countLine"></div>
     </div>
   </div>
 
   <div class="grid" id="grid"></div>
   <div class="empty" id="empty" style="display:none">没有符合当前筛选条件的作品。</div>
+
+  <details class="scan-archive">
+    <summary>扫描窗口与采样记录</summary>
+    <div class="scans" id="scans"></div>
+  </details>
 
   <footer>
     数据来源：<code>05_专题研究/B站影视灵感雷达/daily</code> · 十四日延迟窗口扫描日报<br>
@@ -5976,6 +6018,7 @@ const groupOrder=(DATA.meta.themeGroupOrder&&DATA.meta.themeGroupOrder.length)
   : [...new Set(DATA.works.map(w=>w.themeGroup).filter(Boolean))];
 const themeGroups=groupOrder;
 const dates=[...new Set(DATA.works.map(w=>w.scanDate))].sort();
+const currentDate=dates[dates.length-1] || 'all';
 
 /* ==== release 年份 → 年代分档 ==== */
 function releaseYear(w){
@@ -5998,7 +6041,7 @@ const ERA_ORDER=['2020s','2010s','2000s','1990s','pre1990','unknown'];
 const erasPresent=ERA_ORDER.filter(e=>DATA.works.some(w=>eraOf(w)===e));
 
 /* ==== state ==== */
-const state={q:"",sort:"view",showLow:false,date:"all",theme:"all",era:"all",conf:"all"};
+const state={q:"",sort:"view",showLow:false,date:currentDate,theme:"all",era:"all",conf:"all"};
 
 /* ==== render header ==== */
 const m=DATA.meta;
@@ -6008,15 +6051,10 @@ document.getElementById('note').textContent = m.note;
 
 const totalViews=DATA.works.reduce((a,w)=>a+w._agg.view,0);
 const totalVids=DATA.works.reduce((a,w)=>a+w.videos.length,0);
-const highN=DATA.works.filter(w=>w.confidence==='high').length;
-const lowN=DATA.works.filter(w=>w.confidence==='low').length;
 document.getElementById('stats').innerHTML=`
   <div class="stat"><div class="n">${DATA.works.length}</div><div class="l">作品条目</div></div>
   <div class="stat"><div class="n blue">${totalVids}</div><div class="l">视频样本</div></div>
-  <div class="stat"><div class="n hot">${fmt(totalViews)}</div><div class="l">累计播放（扫描时）</div></div>
-  <div class="stat"><div class="n">${highN}</div><div class="l">高置信作品</div></div>
-  <div class="stat"><div class="n gold">${themeGroups.length}</div><div class="l">题材大类</div></div>
-  <div class="stat"><div class="n" style="color:var(--txt2)">${lowN}</div><div class="l">低置信样本</div></div>`;
+  <div class="stat"><div class="n hot">${fmt(totalViews)}</div><div class="l">累计播放</div></div>`;
 
 document.getElementById('scans').innerHTML=m.scans.map(s=>`
   <div class="scan-chip">
@@ -6026,17 +6064,36 @@ document.getElementById('scans').innerHTML=m.scans.map(s=>`
   </div>`).join('');
 
 /* ==== filter buttons ==== */
+function setButtonFilter(box,b,key){
+  box.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); state[key]=b.dataset.v; render();
+}
 function buildFilter(el,label,items,key){
   const box=document.getElementById(el);
   let html=`<span class="flabel">${label}</span><button class="fbtn on" data-v="all">全部</button>`;
   items.forEach(it=>{ html+=`<button class="fbtn" data-v="${it.v}">${it.t}</button>`; });
   box.innerHTML=html;
-  box.querySelectorAll('.fbtn').forEach(b=>b.onclick=()=>{
-    box.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('on'));
-    b.classList.add('on'); state[key]=b.dataset.v; render();
-  });
+  box.querySelectorAll('.fbtn').forEach(b=>b.onclick=()=>setButtonFilter(box,b,key));
 }
-buildFilter('fDate','扫描日',dates.map(d=>({v:d,t:d})),'date');
+function buildDateFilter(){
+  const box=document.getElementById('fDate');
+  const recent=[...dates].sort().reverse().slice(0,7);
+  const today=recent[0] || dates[dates.length-1];
+  let html=`<span class="flabel">扫描日</span><button class="fbtn on" data-v="${today}">当日</button><button class="fbtn" data-v="all">全部</button>`;
+  recent.slice(1).forEach(d=>{ html+=`<button class="fbtn" data-v="${d}">${d}</button>`; });
+  html+=`<input class="date-input" id="datePick" type="date" min="${dates[0]||''}" max="${today||''}" value="${today||''}" title="选择更早扫描日">`;
+  box.innerHTML=html;
+  box.querySelectorAll('.fbtn').forEach(b=>b.onclick=()=>{
+    const input=document.getElementById('datePick');
+    if(input) input.value=b.dataset.v==='all'?'':b.dataset.v;
+    setButtonFilter(box,b,'date');
+  });
+  document.getElementById('datePick').onchange=e=>{
+    box.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('on'));
+    state.date=e.target.value || 'all'; render();
+  };
+}
+buildDateFilter();
 buildFilter('fTheme','题材',themeGroups.map(t=>({v:t,t})),'theme');
 buildFilter('fEra','年代',erasPresent.map(e=>({v:e,t:ERA_LABEL[e]})),'era');
 buildFilter('fConf','置信度',[{v:'high',t:'高'},{v:'medium',t:'中'},{v:'low',t:'低'}],'conf');
@@ -6045,6 +6102,11 @@ buildFilter('fConf','置信度',[{v:'high',t:'高'},{v:'medium',t:'中'},{v:'low
 document.getElementById('q').oninput=e=>{state.q=e.target.value.trim().toLowerCase();render();};
 document.getElementById('sort').onchange=e=>{state.sort=e.target.value;render();};
 document.getElementById('showLow').onchange=e=>{state.showLow=e.target.checked;render();};
+document.getElementById('filterToggle').onclick=()=>{
+  const controls=document.querySelector('.controls');
+  controls.classList.toggle('open');
+  document.getElementById('filterToggle').textContent=controls.classList.contains('open')?'收起筛选':'筛选';
+};
 
 /* ==== render ==== */
 function matchQ(w){
@@ -6090,7 +6152,7 @@ function vidHTML(v){
 function cardHTML(w){
   const a=w._agg;
   const vids=[...w.videos].sort((x,y)=>(y.view||0)-(x.view||0));
-  const collapsed = vids.length>2 ? '' : '';
+  const collapsed = '';
   return `<div class="card conf-${w.confidence}">
     <div class="card-hd">
       <div class="card-title-row">
@@ -6113,14 +6175,17 @@ function cardHTML(w){
     </div>
     <div class="card-body">
       <div class="signal">${w.signal}</div>
-      <div class="sec-t">讨论点</div>
-      <div class="discuss">${w.discuss}</div>
-      <div class="sec-t">可迁移灵感方向</div>
-      <ul class="inspire">${w.inspire.map(x=>{
-        const i=x.indexOf('：'); return i>0?`<li><b>${x.slice(0,i)}</b>${x.slice(i)}</li>`:`<li>${x}</li>`;
-      }).join('')}</ul>
-      <div class="action-box">${w.action}</div>
+      <div class="detail-body">
+        <div class="sec-t">讨论点</div>
+        <div class="discuss">${w.discuss}</div>
+        <div class="sec-t">可迁移灵感方向</div>
+        <ul class="inspire">${w.inspire.map(x=>{
+          const i=x.indexOf('：'); return i>0?`<li><b>${x.slice(0,i)}</b>${x.slice(i)}</li>`:`<li>${x}</li>`;
+        }).join('')}</ul>
+        <div class="action-box">${w.action}</div>
+      </div>
     </div>
+    <button class="detail-toggle" type="button" onclick="const c=this.closest('.card');c.classList.toggle('open');this.textContent=c.classList.contains('open')?'收起详情':'展开详情';">展开详情</button>
     <div class="vids ${collapsed}">
       <div class="vids-hd" onclick="this.parentNode.classList.toggle('collapsed')">
         <span>相关视频 · ${vids.length} 条</span><span class="arrow">▼</span>
