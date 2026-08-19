@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "B站影视灵感雷达",
-    "subtitle": "延迟窗口候选观察 · 四十八日汇总",
-    "generated": "2026-08-18",
+    "subtitle": "延迟窗口候选观察 · 四十九日汇总",
+    "generated": "2026-08-19",
     "scans": [
       {
         "date": "2026-06-30",
@@ -482,6 +482,16 @@
         "prefilter": 742,
         "detail": 110,
         "keywords": 30
+      },
+      {
+        "date": "2026-08-19",
+        "exec": "2026-08-19 09:50:26",
+        "window": "2026-08-16 09:50 ~ 2026-08-17 09:50",
+        "raw": 120,
+        "dedup": 115,
+        "prefilter": 110,
+        "detail": 110,
+        "keywords": 30
       }
     ],
     "note": "热度信号为扫描时公开统计，会持续变化；B站热度不等同作品质量或参考优先级。",
@@ -561,7 +571,9 @@
       "港片再包装": "港片再包装",
       "类型剧·犯罪情绪": "类型剧·犯罪情绪",
       "二创·传播钩子": "二创·传播钩子",
-      "怪谈·恐怖·阈限": "怪谈·恐怖·阈限"
+      "怪谈·恐怖·阈限": "怪谈·恐怖·阈限",
+      "网络动画现象级讨论": "动画叙事",
+      "伪纪录恐怖/Found Footage": "怪谈·恐怖·阈限"
     },
     "themeGroupOrder": [
       "经典片再解读",
@@ -21045,6 +21057,396 @@
         }
       ],
       "themeGroup": "怪谈·恐怖·阈限"
+    },
+    {
+      "id": "w-niulai-0819",
+      "name": "牛来",
+      "type": "动画电影",
+      "release": "2026",
+      "scanDate": "2026-08-19",
+      "confidence": "high",
+      "theme": "网络动画现象级讨论",
+      "signal": "窗口内最高热作品，多条深度解读与讨论视频，累计 heat 375K+；单条最高播放 14 万+、点赞 8276、投币 2278",
+      "contentSignal": "强",
+      "discuss": "抽象实践叙事、票房与口碑背离（被部分人称为粪作但票房逆袭）、'牛来=牛市来'的股民讨彩头行为艺术、作为暑期档国产动画的现象级出圈案例",
+      "inspire": [
+        "叙事技巧：抽象/荒诞叙事如何承载真实社会情绪",
+        "宣发表达：争议性片名与自发传播的互动关系",
+        "情绪表达：年轻人通过'抽象'表达对现实的疏离与参与"
+      ],
+      "action": "周报复盘重点。建议汇总各角度解读，评估跨圈层参考价值",
+      "videos": [
+        {
+          "bv": "BV1ukbQ6qE9o",
+          "up": "呜喵Mania",
+          "pub": "2026-08-16 13:41:51",
+          "title": "你真的看懂《牛来》了么？丨电影《牛来》解读【呜喵】",
+          "view": 140427,
+          "like": 8276,
+          "fav": 1770,
+          "coin": 2278,
+          "reply": 875,
+          "danmaku": 496,
+          "share": 770
+        },
+        {
+          "bv": "BV1hjbD6iE96",
+          "up": "什么都剪博主",
+          "pub": "2026-08-16 16:27:32",
+          "title": "2026爆火动画电影《牛来》解说",
+          "view": 2833,
+          "like": 75,
+          "fav": 34,
+          "coin": 4,
+          "reply": 4,
+          "danmaku": 1,
+          "share": 24
+        },
+        {
+          "bv": "BV1BWb96xE5q",
+          "up": "唯一一个星河",
+          "pub": "2026-08-16 18:27:26",
+          "title": "动画电影《牛来》用一组魔幻数据让整个行业陷入沉思",
+          "view": 1002,
+          "like": 8,
+          "fav": 1,
+          "coin": 0,
+          "reply": 0,
+          "danmaku": 0,
+          "share": 1
+        }
+      ],
+      "themeGroup": "其他"
+    },
+    {
+      "id": "w-jindandonghua4-0819",
+      "name": "禁断动画4",
+      "type": "恐怖片",
+      "release": "2024",
+      "scanDate": "2026-08-19",
+      "confidence": "high",
+      "theme": "伪纪录恐怖/Found Footage",
+      "signal": "heat 101K；播放 4.8 万+、点赞 2143、投币 518",
+      "contentSignal": "中高",
+      "discuss": "日本伪纪录恐怖系列第四作、分段式恐怖片的叙事节奏与惊悚设计",
+      "inspire": [
+        "叙事技巧：伪纪录/Found Footage 格式的沉浸感营造",
+        "危机氛围：日常场景中的异常侵入感设计",
+        "视觉符号：低画质美学如何增强真实恐惧感"
+      ],
+      "action": "保持观察。伪纪录恐怖是稳定细分赛道，可关注系列演化",
+      "videos": [
+        {
+          "bv": "BV1jKb86QEU3",
+          "up": "花心阿鹏",
+          "pub": "2026-08-17 04:11:23",
+          "title": "【大鹏】因某些原因被封印的视频，日本伪纪录恐怖片《禁断动画4》",
+          "view": 48544,
+          "like": 2143,
+          "fav": 586,
+          "coin": 518,
+          "reply": 99,
+          "danmaku": 369,
+          "share": 23
+        }
+      ],
+      "themeGroup": "其他"
+    },
+    {
+      "id": "w-shenjingxl-0819",
+      "name": "神经侠侣",
+      "type": "电影",
+      "release": "2005",
+      "scanDate": "2026-08-19",
+      "confidence": "medium",
+      "theme": "经典港片再包装",
+      "signal": "heat 19.9K；播放 1.7 万+",
+      "contentSignal": "中",
+      "discuss": "片名与实际质量的落差（'神经侠侣'听起来像烂片）、喜剧+治愈内核的意外组合",
+      "inspire": [
+        "宣发表达：片名误导性与口碑反转的案例",
+        "情绪表达：喜剧外壳下的治愈/温情内核"
+      ],
+      "action": "可纳入冷门港片回顾候选",
+      "videos": [
+        {
+          "bv": "BV1gCb96yEid",
+          "up": "小雯说电影",
+          "pub": "2026-08-17 09:08:00",
+          "title": "一部被片名耽误的神作《神经侠侣》",
+          "view": 16892,
+          "like": 112,
+          "fav": 53,
+          "coin": 5,
+          "reply": 9,
+          "danmaku": 34,
+          "share": 3
+        }
+      ],
+      "themeGroup": "港片再包装"
+    },
+    {
+      "id": "w-dixueying-0819",
+      "name": "滴血雄鹰 / 狄仁杰系列",
+      "type": "电视剧",
+      "release": null,
+      "scanDate": "2026-08-19",
+      "confidence": "medium",
+      "theme": "古装探案案件结构",
+      "signal": "heat 4978",
+      "contentSignal": "中",
+      "discuss": "狄仁杰电视剧系列（张子健版）持续二创生命力、'转职变成内卫'的玩梗式解读",
+      "inspire": [
+        "组织机制：古代官僚/特务体系的叙事张力",
+        "叙事技巧：经典 IP 的跨时代再阐释空间"
+      ],
+      "action": "保持观察",
+      "videos": [
+        {
+          "bv": "BV1t5uo6aEtc",
+          "up": "森森然不可名状",
+          "pub": "2026-08-17 09:00:00",
+          "title": "神狄过度解读《滴血雄鹰》05：关于我转职变成内卫这档事",
+          "view": 2208,
+          "like": 83,
+          "fav": 8,
+          "coin": 39,
+          "reply": 28,
+          "danmaku": 15,
+          "share": 1
+        }
+      ],
+      "themeGroup": "类型剧·犯罪情绪"
+    },
+    {
+      "id": "w-dazhaimen-0819",
+      "name": "大宅门",
+      "type": "电视剧",
+      "release": "2001",
+      "scanDate": "2026-08-19",
+      "confidence": "medium",
+      "theme": "现实主义小人物困境",
+      "signal": "heat 4725",
+      "contentSignal": "中",
+      "discuss": "白景琦妻妾的门第错配及其戏剧功能、大家族内部权力与情感的交织",
+      "inspire": [
+        "群像结构：家族史诗的多线人物编织",
+        "角色关系：权力结构下的亲密关系困境"
+      ],
+      "action": "经典老剧持续讨论，无需额外动作",
+      "videos": [
+        {
+          "bv": "BV1Zxbh6oEFF",
+          "up": "剧影解说",
+          "pub": "2026-08-17 08:28:40",
+          "title": "《大宅门》深度解析：为什么白景琦的妻妾没有和他门当户对的",
+          "view": 3755,
+          "like": 49,
+          "fav": 15,
+          "coin": 0,
+          "reply": 2,
+          "danmaku": 4,
+          "share": 1
+        }
+      ],
+      "themeGroup": "其他"
+    },
+    {
+      "id": "w-bianfu-0819",
+      "name": "蝙蝠",
+      "type": "电影",
+      "release": "2009",
+      "scanDate": "2026-08-19",
+      "confidence": "medium",
+      "theme": "真实案件与现实主义悬疑",
+      "signal": "heat 923",
+      "contentSignal": "中低",
+      "discuss": "家暴题材下女性角色的复杂心理、'像无知孩童'的角色塑造方式",
+      "inspire": [
+        "角色关系：家暴关系中加害者/受害者的心理模糊地带",
+        "情绪表达：本能驱动行为的叙事呈现"
+      ],
+      "action": "保持观察",
+      "videos": [
+        {
+          "bv": "BV1a5b86jE87",
+          "up": "小佳佳叫我来追剧",
+          "pub": "2026-08-17 09:36:00",
+          "title": "这个女主像无知的孩童，本能的作恶《蝙蝠》",
+          "view": 779,
+          "like": 12,
+          "fav": 0,
+          "coin": 0,
+          "reply": 0,
+          "danmaku": 0,
+          "share": 0
+        }
+      ],
+      "themeGroup": "类型剧·犯罪情绪"
+    },
+    {
+      "id": "w-hongzhihe-0819",
+      "name": "红纸鹤",
+      "type": "电影",
+      "release": null,
+      "scanDate": "2026-08-19",
+      "confidence": "medium",
+      "theme": "真实案件与现实主义悬疑",
+      "signal": "heat 2017",
+      "contentSignal": "中",
+      "discuss": "空姐家暴弑夫案的法律与女性困境、真实案件改编的社会议题穿透力",
+      "inspire": [
+        "任务结构：从受困到反抗的行动链设计",
+        "危机氛围：日常环境中的系统性压迫感"
+      ],
+      "action": "保持观察",
+      "videos": [
+        {
+          "bv": "BV12Mbh6uEKQ",
+          "up": "磨刀老农民",
+          "pub": "2026-08-17 09:21:12",
+          "title": "一口气看完真实案件改编《红纸鹤》空姐长期遭受家暴绝望弑夫",
+          "view": 1371,
+          "like": 15,
+          "fav": 17,
+          "coin": 8,
+          "reply": 0,
+          "danmaku": 0,
+          "share": 0
+        }
+      ],
+      "themeGroup": "类型剧·犯罪情绪"
+    },
+    {
+      "id": "w-taotuo-kr-0819",
+      "name": "逃脱（韩国电影）",
+      "type": "电影",
+      "release": "2026",
+      "scanDate": "2026-08-19",
+      "confidence": "medium",
+      "theme": "类型剧·犯罪情绪",
+      "signal": "heat 556",
+      "contentSignal": "中低",
+      "discuss": "军人逃离部队的经典韩国现实题材、为逃离部队割照片主动出击的策略、亲情线索作为逃亡动机",
+      "inspire": [
+        "任务结构：越狱/逃脱类行动的步骤设计",
+        "空间设计：军事管制区的边界与渗透"
+      ],
+      "action": "2026 韩国新片，可关注完整评价",
+      "videos": [
+        {
+          "bv": "BV1web86YEdC",
+          "up": "小华电影解说",
+          "pub": "2026-08-17 09:09:00",
+          "title": "一口气看完经典韩国电影《逃脱》",
+          "view": 472,
+          "like": 4,
+          "fav": 2,
+          "coin": 0,
+          "reply": 0,
+          "danmaku": 0,
+          "share": 0
+        }
+      ],
+      "themeGroup": "类型剧·犯罪情绪"
+    },
+    {
+      "id": "w-deixianjinzhi-0819",
+      "name": "得闲谨制",
+      "type": "电影",
+      "release": "2026",
+      "scanDate": "2026-08-19",
+      "confidence": "medium",
+      "theme": "战争剧任务结构与小队战术",
+      "signal": "heat 372",
+      "contentSignal": "中低",
+      "discuss": "尹正主演抗战/历史背景新片、'普通人的英雄主义，在绝境里守住良知与家园'",
+      "inspire": [
+        "角色关系：普通人在极端环境中的道德选择",
+        "危机氛围：战争背景下的小人物生存"
+      ],
+      "action": "2026 新片，关注后续口碑",
+      "videos": [
+        {
+          "bv": "BV1SNbh63EGe",
+          "up": "周周爱看影",
+          "pub": "2026-08-17 09:47:15",
+          "title": "一口气看完《得闲谨制》：得闲是奢望，谨制是风骨！",
+          "view": 201,
+          "like": 3,
+          "fav": 3,
+          "coin": 2,
+          "reply": 1,
+          "danmaku": 2,
+          "share": 0
+        }
+      ],
+      "themeGroup": "其他"
+    },
+    {
+      "id": "w-xuanya-0819",
+      "name": "悬崖",
+      "type": "电视剧",
+      "release": null,
+      "scanDate": "2026-08-19",
+      "confidence": "medium",
+      "theme": "类型剧·犯罪情绪",
+      "signal": "heat 2297",
+      "contentSignal": "中",
+      "discuss": "谍战剧中'硬刚'时刻的戏剧张力、与《潜伏》《风筝》等经典谍战剧的比较语境",
+      "inspire": [
+        "组织机制：谍战双面生活的极限压力",
+        "任务结构：情报传递与身份掩护的操作细节"
+      ],
+      "action": "谍战剧稳定需求品类，保持观察",
+      "videos": [
+        {
+          "bv": "BV1E4by6eEs5",
+          "up": "睡时侃剧集",
+          "pub": "2026-08-17 09:30:00",
+          "title": "悬崖10周乙硬刚高彬竟用命换母女生机谍战剧影视解说",
+          "view": 1877,
+          "like": 24,
+          "fav": 3,
+          "coin": 2,
+          "reply": 0,
+          "danmaku": 1,
+          "share": 1
+        }
+      ],
+      "themeGroup": "类型剧·犯罪情绪"
+    },
+    {
+      "id": "w-gancui-0819",
+      "name": "干脆杀了他算了（韩国电影）",
+      "type": "电影",
+      "release": "2025",
+      "scanDate": "2026-08-19",
+      "confidence": "low",
+      "theme": "类型剧·犯罪情绪",
+      "signal": "heat 133",
+      "contentSignal": "低",
+      "discuss": "韩国爽片模式的延续、解压/发泄型观影需求",
+      "inspire": [
+        "任务结构：复仇/清算类行动的节奏控制"
+      ],
+      "action": "低优先级",
+      "videos": [
+        {
+          "bv": "BV1P3bb68EM7",
+          "up": "光影追番者",
+          "pub": "2026-08-17 06:45:43",
+          "title": "2025韩国最新爽片《干脆杀了他算了》，年度最爽解压神片",
+          "view": 133,
+          "like": 0,
+          "fav": 0,
+          "coin": 0,
+          "reply": 0,
+          "danmaku": 0,
+          "share": 0
+        }
+      ],
+      "themeGroup": "类型剧·犯罪情绪"
     }
   ]
 }
